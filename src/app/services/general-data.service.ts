@@ -4,16 +4,16 @@ import { Observable } from 'rxjs/Observable';
 
 
 @Injectable({ providedIn: 'root',})
-export class NetworkInfoService {
+export class GeneralDataService {
   constructor(private http: HttpClient) {
 
    }
 
-   /*
-   public getSubnets(): Observable<any> {
-       return this.http.get("../assets/test_data/subnets.json");
+
+   public getStandards(): Observable<any> {
+       return this.http.get("../assets/test_data/standards.json");
    }
-   */
+
 
   /*
    public getSubnets(): Observable<any> {

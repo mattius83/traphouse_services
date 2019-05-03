@@ -1,0 +1,26 @@
+<div class="content-container">
+
+
+  <div id="standards-grid-container">
+        <ag-grid-angular #agGrid id="standards-grid" class="ag-theme-material"
+            [gridOptions]="gridOptions"
+            [rowData]="rowData"
+            [rowSelection]="'single'"
+            (selectionChanged)="onGridSelectionChanged($event)"
+            (gridReady)="onGridReady($event)">
+        </ag-grid-angular>
+  </div>
+
+  <form id="standards-form-container">
+        <mat-form-field>
+            <input matInput placeholder="Name"  type="text" name="standardName" required [(ngModel)]="standardName">
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Boilerplate" rows="10" name="standardBoilerplate" [(ngModel)]="standardBoilerplate"> </textarea>
+        </mat-form-field>
+  </form>
+
+
+
+</div>

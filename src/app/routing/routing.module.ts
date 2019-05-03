@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
-
+import { StandardsEntryComponent } from '../sections/standards/standards-entry.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+  { path: 'standards', component: StandardsEntryComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 
