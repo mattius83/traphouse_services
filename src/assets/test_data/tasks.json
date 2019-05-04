@@ -1,0 +1,57 @@
+[
+  {
+    "_id": "501",
+    "standardId": "002",
+    "description": "AC-1 Access Control Policy & Producedure",
+    "boilerplate": "ACCESS CONTROL POLICY AND PROCEDURES Control: The organization: a. Develops, documents, and disseminates to [Assignment: organization-defined personnel [roles]: 1. An access control policy that addresses purpose, scope, roles, responsibilities, management commitment, coordination among organizational entities, and compliance; and 2. Procedures to facilitate the implementation of the access control policy and associated access controls; and b. Reviews and updates the current: 1. Access control policy [Assignment: organization-defined frequency]; and 2. Access control procedures [Assignment: organization-defined frequency]. Supplemental Guidance: This control addresses the establishment of policy and procedures for the effective implementation of selected security controls and control enhancements in the AC family. Policy and procedures reflect applicable federal laws, Executive Orders, directives, regulations, policies, standards, and guidance. Security program policies and procedures at the organization level may make the need for system-specific policies and procedures unnecessary. The policy can be included as part of the general information security policy for organizations or conversely, can be represented by multiple policies reflecting the complex nature of certain organizations. The procedures can be established for the security program in general and for particular information systems, if needed. The organizational risk management strategy is a key factor in establishing policy and procedures. Related control: PM-9. Control Enhancements: None. References: NIST Special Publications 800-12, 800-100."
+  },
+  {
+    "_id": "502",
+    "standardId": "002",
+    "description": "AC-2 Development Security Tasking 09QT",
+    "boilerplate": ""
+  },
+  {
+    "_id": "503",
+    "standardId": "002",
+    "description": "PTAC Security Hardening 4RT",
+    "boilerplate": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam vel ligula nec risus volutpat tempor vel vitae ex. Etiam aliquet, lectus ac tincidunt pulvinar, justo risus ullamcorper odio, ac dignissim augue risus vel ex. Aliquam laoreet porttitor nunc, nec aliquet nibh facilisis non. Pellentesque a arcu vitae odio porta dapibus fringilla consectetur quam. Aenean in finibus est. Donec eleifend est id felis sodales, vel auctor mi fringilla. Fusce tempus risus dui, ut blandit nulla venenatis sed."
+  },
+  {
+    "_id": "701",
+    "standardId": "003",
+    "description": "Network provisioning saftey Net 7",
+    "boilerplate": "Nam ultricies tincidunt metus, in sollicitudin justo malesuada a. Suspendisse consectetur viverra vulputate. Mauris quis sem mauris. Ut vitae ultrices odio. Suspendisse ultrices enim ac ipsum tempor pellentesque. Curabitur auctor nisl sit amet finibus vulputate. Integer laoreet interdum dapibus. Etiam eleifend maximus metus, ut congue quam sodales vulputate. Nulla vel nulla vel nulla vehicula rutrum ac sit amet ligula. Nam hendrerit dapibus ligula id ultricies. "
+  },
+  {
+    "_id": "702",
+    "standard_id": "003",
+    "description": "LDAP Security Measures",
+    "boilerplate": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tincidunt dui sit amet ullamcorper aliquam. Etiam massa dolor, accumsan id lacus non, sodales mollis sem. Nulla lobortis sodales dictum. Vestibulum leo purus, pretium quis tellus vel, interdum tincidunt nisl. Aliquam vitae mi sit amet massa volutpat vehicula ut ac dui.  "
+  },
+  {
+    "_id": "703",
+    "standard_id": "003",
+    "description": "Data Scrubbing for Netpack Protocol",
+    "boilerplate": "Cras dapibus nulla nec mollis elementum. Nam cursus arcu cursus nisi tristique vulputate. Sed tempus porta viverra. In suscipit dui a lorem malesuada congue. Nulla bibendum, ante in maximus eleifend, justo sapien maximus dolor, a consequat nulla erat in eros. Nullam ornare euismod enim ac condimentum. "
+  },
+  {
+    "_id": "901",
+    "standardId": "001",
+    "description": "Web Application Security Audit",
+    "boilerplate": "Phasellus tortor lacus, tristique vitae ipsum quis, iaculis commodo ex. Donec arcu nunc, commodo vitae neque id, convallis egestas orci. Vivamus at ligula scelerisque, congue purus et, mollis dui. Nulla magna urna, lacinia et dui ac, consequat feugiat felis. Ut sollicitudin, enim eu mattis faucibus, mi neque imperdiet nisi, sit amet tristique dolor lorem et lacus."
+  },
+  {
+    "_id": "902",
+    "standardId": "001",
+    "description": "Personell interviews for cleared individuals",
+    "boilerplate": "In pellentesque diam odio, non venenatis magna lacinia ut. Curabitur ullamcorper arcu lectus, non tincidunt orci blandit sed. Aliquam lorem urna, auctor eu augue sit amet, tincidunt egestas ligula. Duis mauris purus, consectetur mollis pulvinar nec, volutpat sit amet eros. Ut at efficitur elit. Praesent tempus turpis nec lorem faucibus vestibulum. Ut eu augue tortor. Mauris fringilla nisl ante, sit amet ultrices nibh maximus id. Suspendisse ac mauris lectus."
+  },
+  {
+    "_id": "201",
+    "standardId": "004",
+    "description": "Security Training CPTR08",
+    "boilerplate": "Mauris quis sem mauris. Ut vitae ultrices odio. Suspendisse ultrices enim ac ipsum tempor pellentesque. Curabitur auctor nisl sit amet finibus vulputate. Integer laoreet interdum dapibus. Etiam eleifend maximus metus, ut congue quam sodales vulputate. Nulla vel nulla vel nulla vehicula rutrum ac sit amet ligula. Nam hendrerit dapibus ligula id ultricies. "
+  }
+
+]

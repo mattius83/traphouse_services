@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import { filter } from 'rxjs/operators';
 
 
 @Injectable({ providedIn: 'root',})
 export class GeneralDataService {
-  constructor(private http: HttpClient) {
-
-   }
+  constructor(private http: HttpClient) {  }
 
 
    public getStandards(): Observable<any> {
@@ -15,6 +14,15 @@ export class GeneralDataService {
    }
 
 
+  public getTasks(standardId?:string) {
+      if (typeof standardId !== 'undefined') {
+        return this.http.get("..assets/test_data/tasks.json").filter(entry =>{
+            return (entry.standardId === standardId);
+        });
+      } else {
+        return this.http.get("..assets/test_data/tasks.json");
+      }
+  }
   /*
    public getSubnets(): Observable<any> {
        return this.http.get("../assets/test_data/subnets.json");

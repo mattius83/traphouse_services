@@ -1,0 +1,36 @@
+<div class="content-container">
+
+
+  <div id="task-grid-container">
+        <ag-grid-angular #agGrid id="task-grid" class="ag-theme-material"
+            [gridOptions]="gridOptions"
+            [rowData]="taskList"
+            [rowSelection]="'single'"
+            [suppressCellSelection]="true"
+            (rowClicked)="onRowClicked($event)"
+            (gridReady)="onGridReady($event)">
+        </ag-grid-angular>
+  </div>
+
+  <form *ngIf="currentTask" id="task-form-container">
+        <mat-form-field>
+            <input matInput placeholder="Description"  type="text"
+                   name="taskDescription"
+                   required [(ngModel)]="currentTask.description">
+        </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Boilerplate" rows="10"
+                      name="taskBoilerplate"
+                      required [(ngModel)]="currentTask.boilerplate">
+            </textarea>
+        </mat-form-field>
+
+        <div>
+          <button (click)="onSave()" mat-raised-button>Save</button>
+          <button (click)="onDelete()" mat-raised-button>Delete</button>
+          <button (click)="onNew()" mat-raised-button>New</button>
+        </div>
+  </form>
+
+</div>

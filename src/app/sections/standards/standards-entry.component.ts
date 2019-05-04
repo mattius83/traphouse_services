@@ -76,17 +76,12 @@ export class StandardsEntryComponent  {
   }
 
   onDelete(): void {
-    console.log("onDelete initiated");
-    console.log("going to deleted at element: " + this.standardsListIndex);
+
     let temp = _.cloneDeep(this.standardsList);
     let deleted = temp.splice(this.standardsListIndex,1);
     this.standardsList = [];
     this.standardsList = temp;
-
-    console.log("After the delete, here is the standardsList: ");
-    console.log(this.standardsList);
-
-    this.gridApi.refreshCells();
+    this.currentStandard = null;
   }
 
 }
