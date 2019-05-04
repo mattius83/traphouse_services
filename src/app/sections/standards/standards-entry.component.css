@@ -17,5 +17,5 @@
 
 #standards-form-container {
   display: grid;
-  grid-template-rows: 20% auto;
+  grid-template-rows: 15% 15% auto 10%;
 }

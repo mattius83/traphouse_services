@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import * as _ from "lodash";
 import { GridOptions } from 'ag-grid-community';
 import { GeneralDataService } from '../../services/general-data.service';
+import { Standard } from '../shared/standard';
 
 @Component({
   selector: 'standards-entry',
@@ -11,13 +12,12 @@ import { GeneralDataService } from '../../services/general-data.service';
 export class StandardsEntryComponent  {
 
   private gridOptions: GridOptions;
-  private rowData: any;
   private gridApi;
   private gridColumnApi;
 
-  standardName: string;
-  standardBoilerplate: string;
-  standardsList: Array<any>;
+  currentStandard: Standard;
+  standardsList: Array<Standard>;
+  standardsListIndex: number;
 
   constructor(private dataService: GeneralDataService) {
       this.standardsList = [];
@@ -34,12 +34,15 @@ export class StandardsEntryComponent  {
            "columnDefs": colDefs,
       };
 
-      this.rowData = [];
   }
 
   ngOnInit(): void {
       this.dataService.getStandards().subscribe( (data:any) => {
-        this.rowData = data;
+        console.log("ngOnIniti and here is data: ");
+        console.log(data);
+        this.standardsList = data;
+        this.standardsListIndex = 0;
+        this.currentStandard = this.standardsList[this.standardsListIndex];
       });
   }
 
@@ -49,11 +52,24 @@ export class StandardsEntryComponent  {
      this.gridColumnApi = params.columnApi;
   }
 
-  onGridSelectionChanged(): void {
-     let selectedRows = this.gridApi.getSelectedRows();
-     console.log("The selected rows: ");
-     console.log(selectedRows);
-     this.standardName = selectedRows[0].name;
+
+  onRowClicked(event): void {
+    console.log("onRowSelected with event: ");
+    console.log(event);
+    this.currentStandard = event.data;
+  }
+
+  onSave(): void {
+    console.log("onSave initiated");
+    this.gridApi.refreshCells();
+  }
+
+  onNew(): void {
+    console.log("onNew initiated");
+  }
+
+  onDelete(): void {
+    console.log("onDelete initiated");
   }
 
 }

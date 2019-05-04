@@ -4,21 +4,31 @@
   <div id="standards-grid-container">
         <ag-grid-angular #agGrid id="standards-grid" class="ag-theme-material"
             [gridOptions]="gridOptions"
-            [rowData]="rowData"
+            [rowData]="standardsList"
             [rowSelection]="'single'"
-            (selectionChanged)="onGridSelectionChanged($event)"
+            [suppressCellSelection]="true"
+            (rowClicked)="onRowClicked($event)"
             (gridReady)="onGridReady($event)">
         </ag-grid-angular>
   </div>
 
-  <form id="standards-form-container">
+  <form *ngIf="currentStandard" id="standards-form-container">
         <mat-form-field>
-            <input matInput placeholder="Name"  type="text" name="standardName" required [(ngModel)]="standardName">
+            <input matInput placeholder="Name"  type="text" name="standardName" required [(ngModel)]="currentStandard.name">
         </mat-form-field>
 
         <mat-form-field>
-            <textarea matInput placeholder="Boilerplate" rows="10" name="standardBoilerplate" [(ngModel)]="standardBoilerplate"> </textarea>
+            <input matInput placeholder="Description"  type="text" name="standardDescription"  [(ngModel)]="currentStandard.description">
         </mat-form-field>
+
+        <mat-form-field>
+            <textarea matInput placeholder="Boilerplate" rows="10" name="standardBoilerplate" required [(ngModel)]="currentStandard.boilerplate"> </textarea>
+        </mat-form-field>
+        <div>
+          <button (click)="onSave()" mat-raised-button>Save</button>
+          <button (click)="onDelete()" mat-raised-button>Delete</button>
+          <button (click)="onNew()" mat-raised-button>New</button>
+        </div>
   </form>
 
 
