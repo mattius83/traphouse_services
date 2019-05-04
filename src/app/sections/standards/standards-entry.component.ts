@@ -67,6 +67,12 @@ export class StandardsEntryComponent  {
 
   onNew(): void {
     console.log("onNew initiated");
+    this.currentStandard = new Standard("New Standard");
+    let temp = _.cloneDeep(this.standardsList);
+    temp.unshift(this.currentStandard);
+    this.standardsList = [];
+    this.standardsList = temp;
+    this.gridApi.refreshCells();
   }
 
   onDelete(): void {
@@ -76,7 +82,7 @@ export class StandardsEntryComponent  {
     let deleted = temp.splice(this.standardsListIndex,1);
     this.standardsList = [];
     this.standardsList = temp;
-    
+
     console.log("After the delete, here is the standardsList: ");
     console.log(this.standardsList);
 
