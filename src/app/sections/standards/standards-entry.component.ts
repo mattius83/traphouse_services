@@ -57,6 +57,7 @@ export class StandardsEntryComponent  {
     console.log("onRowSelected with event: ");
     console.log(event);
     this.currentStandard = event.data;
+    this.standardsListIndex = event.rowIndex;
   }
 
   onSave(): void {
@@ -70,6 +71,16 @@ export class StandardsEntryComponent  {
 
   onDelete(): void {
     console.log("onDelete initiated");
+    console.log("going to deleted at element: " + this.standardsListIndex);
+    let temp = _.cloneDeep(this.standardsList);
+    let deleted = temp.splice(this.standardsListIndex,1);
+    this.standardsList = [];
+    this.standardsList = temp;
+    
+    console.log("After the delete, here is the standardsList: ");
+    console.log(this.standardsList);
+
+    this.gridApi.refreshCells();
   }
 
 }
