@@ -54,8 +54,6 @@ export class TaskEntryComponent  {
           this.standardList = data;
           this.standardListIndex = 0;
           this.currentStandard = this.standardList[this.standardListIndex];
-          console.log("Here is the currentStandard: ");
-          console.log(this.currentStandard);
           this.loadTasks(this.currentStandard._id);
         }
 
@@ -63,12 +61,17 @@ export class TaskEntryComponent  {
 
   }
 
+  onStandardChange(event) {
+      this.currentStandard = _.find(this.standardList, (entry:Standard) => {
+          return (entry.name === event.tab.textLabel);
+      });
+      this.loadTasks(this.currentStandard._id);
+  }
 
   onGridReady(params) {
      this.gridApi = params.api;
      this.gridColumnApi = params.columnApi;
   }
-
 
   onRowClicked(event): void {
     console.log("onRowSelected with event: ");
@@ -78,11 +81,14 @@ export class TaskEntryComponent  {
   }
 
   onSave(): void {
+    console.log("Task save initiated");
+    let temp = _.cloneDeep(this.taskList);
+    this.taskList = temp;
     this.gridApi.refreshCells();
   }
 
   onNew(): void {
-    this.currentTask= new Task("001", "New Task Description");
+    this.currentTask= new Task(this.currentStandard._id, "New Task Description");
     let temp = _.cloneDeep(this.taskList);
     temp.unshift(this.currentTask);
     this.taskList = [];
