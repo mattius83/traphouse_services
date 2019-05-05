@@ -13,6 +13,7 @@ import { RoutingModule } from './routing/routing.module';
 import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { StandardsEntryComponent } from './sections/standards/standards-entry.component';
+import { TaskEntryComponent } from './sections/tasks/task-entry.component';
 import { GeneralDataService } from './services/general-data.service';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { GeneralDataService } from './services/general-data.service';
     HomeComponent,
     HeaderComponent,
     SidenavListComponent,
-    StandardsEntryComponent
+    StandardsEntryComponent,
+    TaskEntryComponent
   ],
   imports: [
     AgGridModule.withComponents([]),

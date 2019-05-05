@@ -1,12 +1,12 @@
-export class Standard {
+export class Task {
   id: string;
-  standardsId: string;
+  standardId: string;
   description: string;
   boilerplate: string;
 
-  constructor(standardsId: string, description: string) {
+  constructor(standardId: string, description: string) {
     this.description = description;
-    this.standardsId = standardsId;
+    this.standardId = standardId;
   }
 
 }

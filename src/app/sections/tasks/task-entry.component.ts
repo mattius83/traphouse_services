@@ -37,6 +37,8 @@ export class TaskEntryComponent  {
   }
 
   ngOnInit(): void {
+      console.log("Inside task-entry ngOnInit");
+      
       this.dataService.getTasks("002").subscribe( (data:any) => {
         console.log("ngOnInit and here is data for standard 002: ");
         console.log(data);
@@ -69,7 +71,7 @@ export class TaskEntryComponent  {
     let temp = _.cloneDeep(this.taskList);
     temp.unshift(this.currentTask);
     this.taskList = [];
-    this.taskListt = temp;
+    this.taskList = temp;
     this.gridApi.refreshCells();
   }
 
@@ -79,7 +81,7 @@ export class TaskEntryComponent  {
     let deleted = temp.splice(this.taskListIndex,1);
     this.taskList = [];
     this.taskList = temp;
-    this.currenttask = null;
+    this.currentTask = null;
   }
 
 }

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
+import { Task } from '../sections/shared/task';
 
 
 @Injectable({ providedIn: 'root',})
@@ -15,12 +16,17 @@ export class GeneralDataService {
 
 
   public getTasks(standardId?:string) {
+      console.log("inside getTasks");
+
       if (typeof standardId !== 'undefined') {
-        return this.http.get("..assets/test_data/tasks.json").filter(entry =>{
-            return (entry.standardId === standardId);
-        });
+        console.log("standardId not undefined");
+
+
+        return this.http.get("../assets/test_data/tasks.json")
+          .pipe(map( (res:any) => { return res.filter( (entry:Task)  => { return entry.standardId == standardId }) } ));
       } else {
-        return this.http.get("..assets/test_data/tasks.json");
+        console.log("standardId not defined");
+        return this.http.get("../assets/test_data/tasks.json");
       }
   }
   /*
