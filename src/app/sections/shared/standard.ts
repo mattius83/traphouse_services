@@ -1,5 +1,5 @@
 export class Standard {
-  id: string;
+  _id: string;
   name: string;
   boilerplate: string;
   description: string;

@@ -3,6 +3,7 @@ import * as _ from "lodash";
 import { GridOptions } from 'ag-grid-community';
 import { GeneralDataService } from '../../services/general-data.service';
 import { Task } from '../shared/task';
+import { Standard } from '../shared/standard';
 
 @Component({
   selector: 'task-entry',
@@ -18,9 +19,17 @@ export class TaskEntryComponent  {
   currentTask: Task;
   taskList: Array<Task>;
   taskListIndex: number;
+  standardList: Array<Standard>;
+  standardListIndex: number;
+  currentStandard: Standard;
+
 
   constructor(private dataService: GeneralDataService) {
       this.taskList = [];
+      this.standardList = [];
+      this.taskListIndex = 0;
+      this.standardListIndex = 0;
+
       let colDefs = [
           {
               headerName: "Task Description",
@@ -37,15 +46,21 @@ export class TaskEntryComponent  {
   }
 
   ngOnInit(): void {
-      console.log("Inside task-entry ngOnInit");
-      
-      this.dataService.getTasks("002").subscribe( (data:any) => {
-        console.log("ngOnInit and here is data for standard 002: ");
+
+      this.dataService.getStandards().subscribe( (data:any) => {
+        console.log("ngOnIniti and here is standard data: ");
         console.log(data);
-        this.taskList = data;
-        this.taskListIndex = 0;
-        this.currentTask = this.taskList[this.taskListIndex];
+        if (data.length > 0) {
+          this.standardList = data;
+          this.standardListIndex = 0;
+          this.currentStandard = this.standardList[this.standardListIndex];
+          console.log("Here is the currentStandard: ");
+          console.log(this.currentStandard);
+          this.loadTasks(this.currentStandard._id);
+        }
+
       });
+
   }
 
 
@@ -82,6 +97,17 @@ export class TaskEntryComponent  {
     this.taskList = [];
     this.taskList = temp;
     this.currentTask = null;
+  }
+
+  loadTasks(standardId: string): void {
+      this.dataService.getTasks(standardId).subscribe( (data:any) => {
+         this.taskList = data;
+         if (this.taskList.length > 0 ) {
+             this.taskList = data;
+             this.taskListIndex = 0;
+             this.currentTask = this.taskList[this.taskListIndex];
+         }
+      });
   }
 
 }
