@@ -4,11 +4,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from '../home/home.component';
 import { StandardsEntryComponent } from '../sections/standards/standards-entry.component';
 import { TaskEntryComponent } from '../sections/tasks/task-entry.component';
+import { StaffEntryComponent } from '../sections/staff/staff-entry.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'standards', component: StandardsEntryComponent },
   { path: 'tasks', component: TaskEntryComponent },
+  { path: 'staff', component: StaffEntryComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 ];
 

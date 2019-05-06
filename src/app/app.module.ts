@@ -14,16 +14,20 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
 import { StandardsEntryComponent } from './sections/standards/standards-entry.component';
 import { TaskEntryComponent } from './sections/tasks/task-entry.component';
+import { StaffEntryComponent } from './sections/staff/staff-entry.component';
+import { ExpertiseDialogComponent } from './sections/staff/expertise-dialog.component';
 import { GeneralDataService } from './services/general-data.service';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
+    ExpertiseDialogComponent,
     HomeComponent,
     HeaderComponent,
+    LayoutComponent,
     SidenavListComponent,
     StandardsEntryComponent,
+    StaffEntryComponent,
     TaskEntryComponent
   ],
   imports: [
@@ -37,7 +41,9 @@ import { GeneralDataService } from './services/general-data.service';
     RoutingModule
   ],
   providers: [GeneralDataService],
-  entryComponents: [],
+  entryComponents: [
+    ExpertiseDialogComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
