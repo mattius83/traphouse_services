@@ -14,10 +14,31 @@ export class StaffEntryComponent  {
 
   staffList: Array<any>;
   currentStaff: any;
+  skills: Array<string>;
 
   constructor( public dialog: MatDialog) {
       this.staffList = [];
       this.currentStaff = { "name": "", "skills": [] };
+      this.skills = [
+            "Cyber Security Audit",
+            "Data Security",
+            "Inspection Procedures",
+            "E-Commerce | Payment Systems",
+            "E-Commerce | Product Databases",
+            "HIPPA Knowledge",
+            "Red Team | Social Engineering",
+            "Red Team | Penetration Operations",
+            "Red Team | Penetration Audit",
+            "Risk Assessment",
+            "Software Development Process",
+            "Software Specification Analysis",
+            "Systems Analysis",
+            "Testing | Performance",
+            "Testing | Load",
+            "Testing | Stress",
+            "XY Flava Triad",
+            "Zappa Kappa Doo"
+    ];
   }
 
   ngOnInit(): void {
@@ -56,29 +77,10 @@ export class StaffEntryComponent  {
   loadMockStaff() {
       this.staffList.push({"name": "Douglas Mayhew", "skills": []});
       this.staffList.push({"name": "Susan Smith", "skills": []});
-      let skills = [
-            "Cyber Security Audit",
-            "Data Security",
-            "Inspection Procedures",
-            "E-Commerce | Payment Systems",
-            "E-Commerce | Product Databases",
-            "HIPPA Knowledge",
-            "Red Team | Social Engineering",
-            "Red Team | Penetration Operations",
-            "Red Team | Penetration Audit",
-            "Risk Assessment",
-            "Software Development Process",
-            "Software Specification Analysis",
-            "Systems Analysis",
-            "Testing | Performance",
-            "Testing | Load",
-            "Testing | Stress",
-            "XY Flava Triad",
-            "Zappa Kappa Doo"
-    ];
-    this.staffList.push({"name": "Douglas Mayhew", "skills": [skills[0], skills[5], skills[6]]});
-    this.staffList.push({"name": "Susan Smith", "skills": [skills[0], skills[5], skills[9]]});
-    this.staffList.push({"name": "Kyle Gruman", "skills": [skills[13], skills[15] ]});
+
+    this.staffList.push({"name": "Douglas Mayhew", "skills": [this.skills[0], this.skills[5], this.skills[6]]});
+    this.staffList.push({"name": "Susan Smith", "skills": [this.skills[0], this.skills[5], this.skills[9]]});
+    this.staffList.push({"name": "Kyle Gruman", "skills": [this.skills[13], this.skills[15] ]});
 
   }
 }
