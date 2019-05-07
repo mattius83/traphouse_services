@@ -1,5 +1,28 @@
 <div>
     <h3> Welcome to staff-entry </h3>
-
-    <button (click)="onEdit()" mat-raised-button>Edit</button>
 <div>
+
+<div class="content-container">
+
+    <div>
+        <mat-form-field>
+            <input matInput placeholder="Add new staff member"  type="text" name="staffName"
+            (blur)="onBlur()"
+            (keyup)="onKeyup($event)"
+            [(ngModel)]="currentStaff.name">
+        </mat-form-field>
+
+        <div class="staff-list">
+          <mat-list #staff>
+              <mat-list-item *ngFor="let person of staffList">
+                {{person.name}}
+              </mat-list-item>
+          </mat-list>
+        </div>
+    </div>
+
+    <div class="skill-list">
+        <p> the skill selection list would go here </p>
+    </div>
+
+</div>

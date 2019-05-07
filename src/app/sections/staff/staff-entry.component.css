@@ -1,0 +1,16 @@
+.content-container {
+  display: grid;
+  grid-template-columns: 40% 50%;
+  grid-gap: 15px;
+  height: 350px;
+}
+
+.staff-list {
+   height: 300px;
+   overflow-y: scroll;
+}
+
+.skill-list {
+  height: 300px;
+  overflow-y: scroll;
+}
