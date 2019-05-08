@@ -14,11 +14,15 @@ export class StaffEntryComponent  {
 
   staffList: Array<any>;
   currentStaff: any;
+  newStaffName: string;
   skills: Array<string>;
+  selectedSkills: Array<string>;
 
   constructor( public dialog: MatDialog) {
       this.staffList = [];
       this.currentStaff = { "name": "", "skills": [] };
+      this.selectedSkills = [];
+      this.newStaffName = "";
       this.skills = [
             "Cyber Security Audit",
             "Data Security",
@@ -43,16 +47,22 @@ export class StaffEntryComponent  {
 
   ngOnInit(): void {
       this.loadMockStaff();
+      this.currentStaff = this.staffList[0];
+      this.selectedSkills = this.currentStaff.skills;
   }
 
   onBlur() {
-    this.addNewStaff(this.currentStaff.name);
+    this.addNewStaff(this.newStaffName);
   }
 
   onKeyup(event) {
     if (event.key === "Enter") {
-        this.addNewStaff(this.currentStaff.name);
+        this.addNewStaff(this.newStaffName);
     }
+  }
+
+  onStaffSelectionChange(event) {
+      this.currentStaff = event.option.value;
   }
 
   isNameUnique(name: string): boolean {
@@ -67,20 +77,18 @@ export class StaffEntryComponent  {
   }
 
   addNewStaff(name: string): void {
-      if (name.length > 0  && this.isNameUnique(name)) {
-        let newItem = _.cloneDeep(this.currentStaff);
-        this.staffList.unshift(newItem);
-        this.currentStaff ={ "name": "", "skills": [] };
-      }
+        if (name.length > 0 && this.isNameUnique(name)) {
+          this.staffList.unshift( { "name": name, "skills": [] });
+          this.currentStaff = this.staffList[0];
+          this.newStaffName = "";
+        }
   }
 
   loadMockStaff() {
-      this.staffList.push({"name": "Douglas Mayhew", "skills": []});
-      this.staffList.push({"name": "Susan Smith", "skills": []});
 
-    this.staffList.push({"name": "Douglas Mayhew", "skills": [this.skills[0], this.skills[5], this.skills[6]]});
-    this.staffList.push({"name": "Susan Smith", "skills": [this.skills[0], this.skills[5], this.skills[9]]});
-    this.staffList.push({"name": "Kyle Gruman", "skills": [this.skills[13], this.skills[15] ]});
+    this.staffList.push({"name": "Douglas Mayhew", "skills": [this.skills[1], this.skills[2], this.skills[4]]});
+    this.staffList.push({"name": "Susan Smith", "skills": [this.skills[0], this.skills[5], this.skills[7]]});
+    this.staffList.push({"name": "Kyle Gruman", "skills": [this.skills[3], this.skills[5] ]});
 
   }
 }

@@ -9,12 +9,15 @@
             <input matInput placeholder="Add new staff member"  type="text" name="staffName"
             (blur)="onBlur()"
             (keyup)="onKeyup($event)"
-            [(ngModel)]="currentStaff.name">
+            [(ngModel)]="newStaffName">
+
+
         </mat-form-field>
 
         <div class="staff-list">
-          <mat-selection-list #staff>
-              <mat-list-option *ngFor="let person of staffList">
+
+          <mat-selection-list #staff (selectionChange)="onStaffSelectionChange($event)">
+              <mat-list-option *ngFor="let person of staffList" [value]="person">
                 {{person.name}}
               </mat-list-option>
           </mat-selection-list>
@@ -22,8 +25,9 @@
     </div>
 
     <div class="skill-list">
-      <mat-selection-list #expertise>
-          <mat-list-option *ngFor="let skill of skills">
+
+      <mat-selection-list #expertise [(ngModel)]="currentStaff.skills">
+          <mat-list-option *ngFor="let skill of skills" [value]="skill">
             {{skill}}
           </mat-list-option>
       </mat-selection-list>
